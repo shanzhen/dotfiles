@@ -1,4 +1,4 @@
 export DISABLE_AUTO_UPDATE=true
 export DISABLE_UPDATE_PROMPT=true
 zstyle ':omz:update' mode disabled
-
+export PATH="$HOME/.local/bin:$PATH"
