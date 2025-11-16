@@ -36,6 +36,15 @@ zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh"
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}' 'r:|[._-]=**' 'l:|=* r:|=*'
 zstyle ':completion:*' menu yes select
 
+# Fish-like tab completion - complete on empty prefix
+zstyle ':completion:*' insert-tab false
+setopt AUTO_LIST           # Automatically list choices on ambiguous completion
+setopt AUTO_MENU           # Use menu completion after second tab
+unsetopt LIST_BEEP         # Don't beep on ambiguous completions
+
+# Ensure Tab invokes completion
+bindkey '^I' expand-or-complete
+
 # fzf-tab tweaks
 zstyle ':fzf-tab:*' switch-group ',' '.'
 zstyle ':fzf-tab:*' fzf-bindings 'ctrl-space:accept' 'tab:down' 'btab:up'
