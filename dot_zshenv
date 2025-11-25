@@ -1,6 +1,8 @@
+alias python='python3'
+
 export DISABLE_AUTO_UPDATE=true
 export DISABLE_UPDATE_PROMPT=true
 zstyle ':omz:update' mode disabled
+#eval "$(direnv hook zsh)"
 
 [[ -f "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
-
