@@ -81,9 +81,16 @@ _short_pwd() {
 autoload -U colors && colors
 _HP_PREFIX="%{$fg[cyan]%}%m%{$reset_color%} "
 
+# Store the original PROMPT once (before any modification)
+typeset -g _HP_ORIGINAL_PROMPT=""
+
 _hp_left() {
-  local base="$PROMPT"
-  [[ "$base" == $_HP_PREFIX* ]] && base="${base#$_HP_PREFIX}"
+  # Capture original prompt on first run only
+  if [[ -z "$_HP_ORIGINAL_PROMPT" ]]; then
+    _HP_ORIGINAL_PROMPT="$PROMPT"
+  fi
+
+  local base="$_HP_ORIGINAL_PROMPT"
   # Replace %~ or %c or %1~ with shortened path
   base="${base//\%~/\$(_short_pwd)}"
   base="${base//\%c/\$(_short_pwd)}"
