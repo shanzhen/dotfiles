@@ -77,26 +77,5 @@ _short_pwd() {
   echo "$result"
 }
 
-# --- Host on LEFT (prefix), resilient to theme resets ---
-autoload -U colors && colors
-_HP_PREFIX="%{$fg[cyan]%}%m%{$reset_color%} "
-
-# Store the original PROMPT once (before any modification)
-typeset -g _HP_ORIGINAL_PROMPT=""
-
-_hp_left() {
-  # Capture original prompt on first run only
-  if [[ -z "$_HP_ORIGINAL_PROMPT" ]]; then
-    _HP_ORIGINAL_PROMPT="$PROMPT"
-  fi
-
-  local base="$_HP_ORIGINAL_PROMPT"
-  # Replace %~ or %c or %1~ with shortened path
-  base="${base//\%~/\$(_short_pwd)}"
-  base="${base//\%c/\$(_short_pwd)}"
-  base="${base//\%1~/\$(_short_pwd)}"
-  PROMPT="${_HP_PREFIX}${base}"
-}
-
-typeset -ga precmd_functions
-(( ${precmd_functions[(I)_hp_left]} == 0 )) && precmd_functions+=(_hp_left)
+# --- Prompt with hostname is in custom theme (custom files load BEFORE theme) ---
+# See: ~/.oh-my-zsh/custom/themes/robbyrussell.zsh-theme
