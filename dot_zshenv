@@ -6,4 +6,4 @@ zstyle ':omz:update' mode disabled
 #eval "$(direnv hook zsh)"
 
 [[ -f "$HOME/.zshenv.local" ]] && source "$HOME/.zshenv.local"
-. "$HOME/.cargo/env"
+[[ -f "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
