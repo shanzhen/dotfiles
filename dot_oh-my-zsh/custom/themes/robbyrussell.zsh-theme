@@ -1,6 +1,6 @@
 # Custom robbyrussell with hostname prefix
 _HP_HOST=$(hostname -s)
-PROMPT="%{$fg[cyan]%}${_HP_HOST}%{$reset_color%} %(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} )%{$fg[cyan]%}%c%{$reset_color%}"
+PROMPT="%{$fg[cyan]%}${_HP_HOST}%{$reset_color%} %(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%} )%{$fg[cyan]%}\$(_short_pwd)%{$reset_color%}"
 PROMPT+=' $(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
