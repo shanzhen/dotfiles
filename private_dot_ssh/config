@@ -1,0 +1,36 @@
+Host h
+    Hostname h.adpolitan.com
+    Port 22
+Host dev2
+    Hostname h.adpolitan.com
+    Port 10022
+Host dev1
+#    Hostname 192.168.66.23
+#    ProxyJump dc0.adpolitan.com
+    Hostname dc.adpolitan.com
+    Port 10022
+#    ProxyJump k2.adpolitan.com
+Host dev5
+      HostName dc.adpolitan.com
+      Port 10025
+Host k2
+    Hostname k2.adpolitan.com
+    Port 22
+Host 7k62
+	Hostname 192.168.88.88
+	ProxyJump h
+Host vm506
+	Hostname 192.168.1.4
+	ProxyJump h
+Host yun
+	Hostname 192.168.99.101
+#        ProxyJump dc0.adpolitan.com
+	ProxyJump hkh
+	User yun
+Host hkh
+	Hostname hkh.adpolitan.com
+	Port 23
+	User root
+Host test1
+	Hostname dc.adpolitan.com
+	Port 10031
