@@ -2,14 +2,28 @@ Host h
     Hostname h.adpolitan.com
     Port 22
 Host dev2
-    Hostname h.adpolitan.com
-    Port 10022
+    Hostname 192.168.88.22
+    ForwardAgent yes
+    AddKeysToAgent yes
+#    Hostname h.adpolitan.com
+#    Port 10022
+#    ProxyJump k1
+Host prod1
+    Hostname prod1.adpolitan.com
+Host k1
+    Hostname k1.adpolitan.com
+Host k2
+    Hostname k2.adpolitan.com
+Host dc0
+    Hostname dc0.adpolitan.com
+Host dc1
+    Hostname dc1.adpolitan.com
 Host dev1
-#    Hostname 192.168.66.23
-#    ProxyJump dc0.adpolitan.com
     Hostname dc.adpolitan.com
-    Port 10022
-#    ProxyJump k2.adpolitan.com
+    ForwardAgent yes
+    AddKeysToAgent yes
+#    ProxyJump k1
+#    Port 10021
 Host dev5
       HostName dc.adpolitan.com
       Port 10025
@@ -18,9 +32,6 @@ Host k2
     Port 22
 Host 7k62
 	Hostname 192.168.88.88
-	ProxyJump h
-Host vm506
-	Hostname 192.168.1.4
 	ProxyJump h
 Host yun
 	Hostname 192.168.99.101
